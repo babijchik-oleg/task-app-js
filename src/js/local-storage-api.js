@@ -18,3 +18,11 @@ export function removeTaskFromStore(id) {
   const newTasks = tasks.filter(item => item.id !== id);
   localStorage.setItem('tasks', JSON.stringify(newTasks));
 }
+
+export function setThemeToStore(theme) {
+  localStorage.setItem('theme', theme);
+}
+
+export function getThemeFromStore() {
+  return localStorage.getItem('theme');
+}

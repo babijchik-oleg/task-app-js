@@ -5,7 +5,9 @@ import {
   removeTaskFromStore,
   setTaskToStore,
   getTaskFromStore,
+  getThemeFromStore,
 } from './local-storage-api';
+import { changeThemeByStore } from './theme-switcher';
 
 export function handelSubmitTask(event) {
   event.preventDefault();
@@ -26,6 +28,7 @@ export function handelSubmitTask(event) {
 export function handlerInitPage() {
   initStore();
   renderTasks(getTaskFromStore());
+  changeThemeByStore(getThemeFromStore());
 }
 
 export function handleRemoveTask(event) {
@@ -33,7 +36,6 @@ export function handleRemoveTask(event) {
 
   const task = event.target.parentElement;
   const taskID = task.dataset.id;
-  console.log(taskID);
 
   removeTaskFromStore(taskID);
   task.remove();
